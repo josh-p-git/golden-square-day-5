@@ -1,17 +1,17 @@
 class StringBuilder
   def initialize
-    @str = ""
+    @str = ''
   end
-  
+
   def add(str)
     @str += str
   end
-  
+
   def size
-    return @str.length
+    @str.length
   end
-  
+
   def output
-    return @str
+    @str
   end
 end
