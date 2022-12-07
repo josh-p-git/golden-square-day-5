@@ -3,7 +3,7 @@ def encode(plaintext, key)
   ciphertext_chars = plaintext.chars.map do |char|
     (65 + cipher.find_index(char)).chr
   end
-  return ciphertext_chars.join
+  ciphertext_chars.join
 end
 
 def decode(ciphertext, key)
@@ -11,11 +11,11 @@ def decode(ciphertext, key)
   plaintext_chars = ciphertext.chars.map do |char|
     cipher[char.ord - 65]
   end
-  return plaintext_chars.join
+  plaintext_chars.join
 end
 
 puts encode('theswiftfoxjumpedoverthelazydog', 'secretkey')
-puts decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
+puts decode('EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL', 'secretkey')
 # Intended output:
 #
 # > encode("theswiftfoxjumpedoverthelazydog", "secretkey")
@@ -23,4 +23,3 @@ puts decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
 #
 # > decode("EMBAXNKEKSYOVQTBJSWBDEMBPHZGJSL", "secretkey")
 # => "theswiftfoxjumpedoverthelazydog"
-
