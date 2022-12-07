@@ -1,7 +1,7 @@
 def get_most_common_letter(text)
   counter = Hash.new(0)
   text.chars.each do |char|
-    counter[char] += 1 unless char == ' '
+    counter[char] += 1 unless char == (/\W/)
   end
   puts counter
   counter.to_a.sort_by { |_k, v| v }.reverse[0][0]
