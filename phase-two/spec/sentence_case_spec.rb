@@ -8,6 +8,6 @@ describe 'sentence_case' do
     expect(sentence_case('This is an example')).to eq 'You need punctuation!'
   end
   it 'will instruct the user to capitalise and add punctuation if both are required' do
-    expect(sentence_case('this is an example')).to eq 'You need a capital letter and punctuation!'   
+    expect(sentence_case('this is an example')).to eq 'You need a capital letter and punctuation!'
   end
 end
