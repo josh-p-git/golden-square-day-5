@@ -2,6 +2,7 @@ class DiaryEntry
   def initialize(title, contents) # title, contents are strings
     @title = title
     @contents = contents
+    @start_point = 0
   end
 
   attr_reader :title, :contents
@@ -11,13 +12,16 @@ class DiaryEntry
   end
 
   def reading_time(wpm)
-    (count_words / wpm.to_f).round(1)
+    @contents.split(" ").length / wpm
   end
 
   def reading_chunk(wpm, minutes)
-    result = wpm * minutes
-    new_content = @contents.split(' ')
-    new_content[0..result].join('')
+    end_point = @start_point + wpm / minutes
+    contents_array = @contents.split(" ")
+    string = contents_array[@start_point...end_point].join(" ")
+    @start_point = end_point
+    @start_point = 0 if @start_point >= @contents.split(" ").length
+    return string
   end
 end
 
