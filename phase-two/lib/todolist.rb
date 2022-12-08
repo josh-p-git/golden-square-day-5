@@ -1,15 +1,16 @@
 class TodoList
-  def initialize(name) # name is a string
+  def initialize(name)
     @name = name
+    @tasks = []
   end
 
-  def remind_me_to(task) # task is a string
-    @task = task
-    # No return value
+  def remind_me_to(task)
+    @tasks << task
   end
 
   def remind
-    # Throws an exception if no task is set
-    # Otherwise, returns a string reminding the user to do the task
+    raise 'No tasks set!' if @tasks == []
+
+    "#{@tasks.join(', ')}, #{@name}!"
   end
 end
