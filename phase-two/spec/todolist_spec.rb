@@ -1,9 +1,8 @@
-require_relative '../lib/todolist.rb'
+require_relative '../lib/todolist'
 
-describe Reminder do
-  it 'initializes with a name' do
-    reminder = Reminder.new("Joe")
-    task = "walk the dog"
-    expect(reminder.remind_me_to(task)).to eq 'walk the dog'
+describe TodoList do
+  it 'has an empty list if given no tasks' do
+    todo_list = TodoList.new('Joe')
+    expect(todo_list.list).to eq []
   end
 end

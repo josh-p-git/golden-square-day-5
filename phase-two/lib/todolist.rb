@@ -1,4 +1,4 @@
-class Reminder
+class TodoList
   def initialize(name) # name is a string
     @name = name
   end
@@ -8,7 +8,7 @@ class Reminder
     # No return value
   end
 
-  def remind()
+  def remind
     # Throws an exception if no task is set
     # Otherwise, returns a string reminding the user to do the task
   end
