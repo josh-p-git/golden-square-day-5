@@ -23,10 +23,3 @@ class GrammarStats
     total.to_i
   end
 end
-
-grammar_stats = GrammarStats.new
-grammar_stats.check('Hello, world')
-grammar_stats.check('Hello, world')
-grammar_stats.check('Hello, world')
-grammar_stats.check('Hello, world')
-p grammar_stats.percentage_good

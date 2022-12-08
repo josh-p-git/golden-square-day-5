@@ -12,16 +12,16 @@ class DiaryEntry
   end
 
   def reading_time(wpm)
-    @contents.split(" ").length / wpm
+    @contents.split(' ').length / wpm
   end
 
   def reading_chunk(wpm, minutes)
     end_point = @start_point + wpm / minutes
-    contents_array = @contents.split(" ")
-    string = contents_array[@start_point...end_point].join(" ")
+    contents_array = @contents.split(' ')
+    string = contents_array[@start_point...end_point].join(' ')
     @start_point = end_point
-    @start_point = 0 if @start_point >= @contents.split(" ").length
-    return string
+    @start_point = 0 if @start_point >= @contents.split(' ').length
+    string
   end
 end
 
