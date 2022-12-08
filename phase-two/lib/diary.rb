@@ -1,10 +1,11 @@
 class Diary
   def initialize
     @entries = []
+    @contents = []
   end
 
   def add(entry) # entry is an instance of DiaryEntry
-    @entries << entry.title #Returns nothing
+    @entries << entry #Returns nothing
   end
 
   def all
@@ -12,14 +13,22 @@ class Diary
   end
 
   def count_words
-    # Returns the number of words in all diary entries
-    # HINT: This method should make use of the `count_words` method on DiaryEntry.
+   wordcount = 0
+   @entries.each do |entry|
+    wordcount += entry.count_words
+   end
+   wordcount
   end
 
   def reading_time(wpm) # wpm is an integer representing
                         # the number of words the user can read per minute
     # Returns an integer representing an estimate of the reading time in minutes
     # if the user were to read all entries in the diary.
+    time = 0
+    @entries.each do |entry|
+      time += entry.reading_time(wpm)
+    end
+    return "It will take #{time} minute(s) to read this"
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
