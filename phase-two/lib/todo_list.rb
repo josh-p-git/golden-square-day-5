@@ -1,21 +1,30 @@
 class TodoList
     def initialize
-        @entries = []
+        @entries = ""
+        @complete = []
+        @incomplete = []
+        
     end
   
     def add(todo) # todo is an instance of Todo
-      @entries << todo
+         @entries = todo
+if @entries.chr == "1"
+    @complete << @entries[1..-1]
+else
+  @incomplete << @entries
+end
     end
   
     def incomplete
-      @entries
+      return @incomplete
     end
   
     def complete
-      # Returns all complete todos
+     return @complete
     end
   
     def give_up!
-      # Marks all todos as complete
+@complete << @incomplete
+return @complete
     end
 end
